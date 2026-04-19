@@ -21,6 +21,7 @@ export function Footer() {
             <li><Link to="/" className="hover:text-foreground">Inicio</Link></li>
             <li><Link to="/nosotros" className="hover:text-foreground">Nosotros</Link></li>
             <li><Link to="/servicios" className="hover:text-foreground">Servicios</Link></li>
+            <li><Link to="/proyectos" className="hover:text-foreground">Proyectos</Link></li>
             <li><Link to="/contacto" className="hover:text-foreground">Contacto</Link></li>
           </ul>
         </div>
@@ -38,9 +39,9 @@ export function Footer() {
         <div>
           <h4 className="text-sm font-semibold mb-3">Contacto</h4>
           <ul className="space-y-2 text-sm text-muted-foreground">
-            <li className="flex items-center gap-2"><Mail className="h-4 w-4" /> hola@avanta.consulting</li>
-            <li className="flex items-center gap-2"><Phone className="h-4 w-4" /> +54 11 4000 0000</li>
-            <li className="flex items-center gap-2"><MapPin className="h-4 w-4" /> Buenos Aires, Argentina</li>
+            <li className="flex items-center gap-2"><Mail className="h-4 w-4" /><span>hola@avanta.consulting</span></li>
+            <li className="flex items-center gap-2"><Phone className="h-4 w-4" /><span>+54 11 4000 0000</span></li>
+            <li className="flex items-center gap-2"><MapPin className="h-4 w-4" /><span>Buenos Aires, Argentina</span></li>
           </ul>
         </div>
       </div>
