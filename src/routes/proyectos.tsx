@@ -1,9 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Reveal } from "@/components/site/Reveal";
+import proyectoAmj from "@/assets/proyecto-amj.png";
+import proyectoDni from "@/assets/proyecto-dni.png";
 
 export const Route = createFileRoute("/proyectos")({
   head: () => ({
@@ -12,12 +14,12 @@ export const Route = createFileRoute("/proyectos")({
       {
         name: "description",
         content:
-          "Casos de éxito en desarrollo web y planificación financiera. Conocé los proyectos que llevamos adelante junto a nuestros clientes.",
+          "Casos reales de desarrollo web: dashboards financieros y herramientas con inteligencia artificial.",
       },
       { property: "og:title", content: "Proyectos — Avanta Consulting" },
       {
         property: "og:description",
-        content: "Casos reales de desarrollo web y planificación financiera.",
+        content: "Conocé los proyectos web que desarrollamos para nuestros clientes.",
       },
     ],
   }),
@@ -26,58 +28,22 @@ export const Route = createFileRoute("/proyectos")({
 
 const projects = [
   {
-    title: "Lumen Studio",
-    category: "Desarrollo web",
-    tags: ["Next.js", "E-commerce", "SEO"],
+    title: "AMJ Servicios SAS",
+    category: "Dashboard financiero",
+    image: proyectoAmj,
+    tags: ["Dashboard", "Flujo de caja", "Reportes PDF"],
     description:
-      "Rediseño completo del sitio institucional y tienda online. Aumento del 110% en consultas calificadas en los primeros 3 meses.",
-    metric: "+110% leads",
-    gradient: "from-blue-500/20 via-indigo-500/10 to-transparent",
+      "Plataforma integral de gestión de flujo de caja para AMJ Servicios SAS. Permite controlar ingresos, egresos, facturas y préstamos con dashboard en tiempo real y exportación a PDF.",
+    metric: "Gestión 360°",
   },
   {
-    title: "Norte Capital",
-    category: "Planificación financiera",
-    tags: ["Inversión", "Estrategia", "B2B"],
+    title: "DNI Scanner",
+    category: "Herramienta con IA",
+    image: proyectoDni,
+    tags: ["IA", "OCR", "Argentina"],
     description:
-      "Plan financiero a 5 años con modelo de proyección de flujo de caja y diversificación de portafolio para fondo de inversión.",
-    metric: "+32% ROI anual",
-    gradient: "from-emerald-500/20 via-teal-500/10 to-transparent",
-  },
-  {
-    title: "Casa Bloom",
-    category: "Desarrollo web",
-    tags: ["Shopify", "Branding", "UX"],
-    description:
-      "E-commerce de decoración con experiencia de compra premium, integración de pagos y logística automatizada.",
-    metric: "x3 ventas online",
-    gradient: "from-rose-500/20 via-pink-500/10 to-transparent",
-  },
-  {
-    title: "Grupo Andrade",
-    category: "Planificación financiera",
-    tags: ["PYME", "Presupuesto", "Cash flow"],
-    description:
-      "Reestructuración financiera y armado de tablero de control para una pyme familiar con tres unidades de negocio.",
-    metric: "-40% costos",
-    gradient: "from-amber-500/20 via-orange-500/10 to-transparent",
-  },
-  {
-    title: "Atlas Legal",
-    category: "Desarrollo web",
-    tags: ["Institucional", "CMS", "SEO"],
-    description:
-      "Plataforma institucional con blog jurídico y portal de clientes. Top 3 en Google para 18 keywords clave del sector.",
-    metric: "Top 3 SEO",
-    gradient: "from-slate-500/20 via-zinc-500/10 to-transparent",
-  },
-  {
-    title: "Verde Patagonia",
-    category: "Planificación financiera",
-    tags: ["Personal", "Retiro", "Inversión"],
-    description:
-      "Plan de retiro personalizado con asignación de activos y revisión trimestral para grupo de socios fundadores.",
-    metric: "20 años de plan",
-    gradient: "from-green-500/20 via-lime-500/10 to-transparent",
+      "Aplicación que escanea DNI argentinos y extrae automáticamente todos los datos mediante inteligencia artificial. Soporta JPG, PNG, WEBP y PDF, con interfaz intuitiva drag & drop.",
+    metric: "Extracción automática",
   },
 ];
 
@@ -95,14 +61,13 @@ function ProyectosPage() {
             <h1 className="font-display text-4xl md:text-6xl font-semibold leading-[1.05] mt-6 max-w-3xl">
               Trabajos reales,{" "}
               <span className="italic font-normal text-transparent bg-clip-text bg-gradient-hero">
-                resultados medibles
+                resultados a la vista
               </span>
               .
             </h1>
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-              Una selección de los proyectos que acompañamos: desde sitios web
-              de alto rendimiento hasta planes financieros que transformaron
-              empresas y patrimonios.
+              Una selección de los proyectos que desarrollamos: plataformas a
+              medida que resuelven problemas concretos de nuestros clientes.
             </p>
           </Reveal>
         </div>
@@ -110,26 +75,27 @@ function ProyectosPage() {
 
       {/* GRID DE PROYECTOS */}
       <section className="mx-auto max-w-7xl px-6 pb-24">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 gap-8">
           {projects.map((p, i) => (
-            <Reveal key={p.title} delay={(i % 3) * 100}>
-              <Card className="group relative h-full overflow-hidden border-border hover:shadow-elegant transition-smooth hover:-translate-y-1">
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${p.gradient} opacity-60 group-hover:opacity-100 transition-opacity`}
-                  aria-hidden
-                />
-                <div className="relative p-8 flex flex-col h-full">
-                  <div className="flex items-start justify-between">
-                    <Badge variant="secondary" className="rounded-full text-xs">
-                      {p.category}
-                    </Badge>
-                    <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-foreground group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </div>
+            <Reveal key={p.title} delay={i * 100}>
+              <Card className="group h-full overflow-hidden border-border hover:shadow-elegant transition-smooth hover:-translate-y-1 p-0">
+                <div className="relative aspect-[16/9] overflow-hidden bg-muted border-b border-border">
+                  <img
+                    src={p.image}
+                    alt={`Captura del proyecto ${p.title}`}
+                    className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-8 flex flex-col">
+                  <Badge variant="secondary" className="rounded-full text-xs w-fit">
+                    {p.category}
+                  </Badge>
 
-                  <h3 className="font-display text-2xl font-semibold mt-6">
+                  <h3 className="font-display text-2xl font-semibold mt-5">
                     {p.title}
                   </h3>
-                  <p className="mt-3 text-muted-foreground text-sm leading-relaxed flex-1">
+                  <p className="mt-3 text-muted-foreground text-sm leading-relaxed">
                     {p.description}
                   </p>
 
@@ -137,7 +103,7 @@ function ProyectosPage() {
                     {p.tags.map((t) => (
                       <span
                         key={t}
-                        className="text-xs px-2.5 py-1 rounded-full bg-background/60 border border-border text-muted-foreground"
+                        className="text-xs px-2.5 py-1 rounded-full bg-secondary border border-border text-muted-foreground"
                       >
                         {t}
                       </span>
